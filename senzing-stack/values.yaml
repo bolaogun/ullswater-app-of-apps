@@ -26,7 +26,7 @@ senzingStack:
     helmValues: ""
   - chartName: swaggerapi-swagger-ui
     targetRevision: 2.3.0
-    enabled: true
+    enabled: false
     helmValues: ""
   - chartName: senzing-debug
     targetRevision: 1.3.0
