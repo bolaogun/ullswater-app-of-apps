@@ -22,7 +22,7 @@ senzingStack:
     helmValues: ""
   - chartName: senzing-redoer
     targetRevision: 2.4.2
-    enabled: false
+    enabled: true
     helmValues: ""
   - chartName: swaggerapi-swagger-ui
     targetRevision: 2.3.0
