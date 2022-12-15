@@ -11,8 +11,8 @@ spec:
     path: apps/postapps/
     repoURL: 'https://github.com/bolaogun/ullswater-app-of-apps'
     targetRevision: develop
-    # directory:
-    #   recurse: true
+    directory:
+      recurse: true
   destination:
     namespace: ullswater-postapps
     server: 'https://kubernetes.default.svc'
