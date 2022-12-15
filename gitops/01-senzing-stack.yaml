@@ -21,14 +21,9 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    retry:
-      limit: 5
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
+      allowEmpty: false
     syncOptions:
-      - CreateNamespace=true
-      - Validate=false
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
+    - Validate=false
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
