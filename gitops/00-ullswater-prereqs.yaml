@@ -4,15 +4,13 @@ kind: Application
 metadata:
   name: ullswater-prereqs
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "-10"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "-10"
 spec:
   source:
-    path: prereqs/*
+    path: apps/prereqs/
     repoURL: 'https://github.com/bolaogun/ullswater-app-of-apps'
     targetRevision: develop
-    directory:
-      recurse: true
   destination:
     namespace: ullswater-prereqs
     server: 'https://kubernetes.default.svc'
@@ -29,6 +27,8 @@ spec:
         factor: 2
     syncOptions:
       - CreateNamespace=true
-
+      - Validate=false
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
 
 

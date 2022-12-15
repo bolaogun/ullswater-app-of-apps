@@ -4,17 +4,17 @@ kind: Application
 metadata:
   name: ullswater-senzing-stack
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "0"
 spec:
   source:
-    path: senzing-stack
+    path: apps/senzing-stack/
     repoURL: 'https://github.com/bolaogun/ullswater-app-of-apps'
     targetRevision: develop
-    directory:
-      recurse: true
+    # directory:
+    #   recurse: true
   destination:
-    namespace: ullswater-senzing-stack
+    namespace: senzing
     server: 'https://kubernetes.default.svc'
   project: default
   syncPolicy:
@@ -29,3 +29,6 @@ spec:
         factor: 2
     syncOptions:
       - CreateNamespace=true
+      - Validate=false
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
